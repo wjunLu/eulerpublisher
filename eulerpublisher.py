@@ -56,7 +56,7 @@ class Publisher:
             if os.path.exists('openEuler-docker-rootfs.' + docker_arch + '.tar.xz') == True:
                 continue
             os_cmd = 'tar -xf ' + 'openEuler-docker.' + arch + '.tar.xz ' + \
-                     '--include "*.tar" --exclude "layer.tar"'
+                     '--wildcards "*.tar" --exclude "layer.tar"'
             os.system(os_cmd)
             for file in os.listdir('.'):
                 if file.endswith('.tar') and not re.search('openEuler', file):
